@@ -6,7 +6,7 @@ import WorkExperience from "./components/WorkExperience.jsx";
 import "./index.css";
 
 export default function App() {
-  const [isEditMode, setIsEditMode] = useState(false);
+  const [isEditMode, setIsEditMode] = useState(true);
   const toggleEditMode = () => setIsEditMode((i) => !i);
 
   return (

@@ -1,15 +1,20 @@
+form {
+  background-color: var(--dark-gray);
+  margin-bottom: 1rem;
+}
+
 form > .btn-container {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  padding: 0.5rem 1rem 1rem;
-  background-color: var(--dark-gray);
+  padding: 1rem 1rem;
+  border-top: 2px solid var(--white);
 }
 
 form > .container {
   display: grid;
-  gap: 0.5rem;
-  padding: 1rem;
+  gap: 1rem;
+  padding: 2rem 1rem;
 }
 
 .submit-btn,

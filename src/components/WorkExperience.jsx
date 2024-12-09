@@ -34,12 +34,14 @@ export default function WorkExperience({ isEditMode, data, onClick }) {
       >
         <input
           type="text"
+          aria-label="company name"
           placeholder="Company name"
           data-company-name=""
           defaultValue={state.company}
         />
         <input
           type="text"
+          aria-label="position title"
           placeholder="Position title"
           data-position-title=""
           defaultValue={state.title}

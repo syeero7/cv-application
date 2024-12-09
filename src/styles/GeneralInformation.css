@@ -2,9 +2,6 @@
   position: relative;
   margin-top: 6ch;
 }
-.general-info-form {
-  background-color: var(--dark-gray);
-}
 .general-info > .content {
   position: relative;
   padding: 1rem 1rem 0.5rem;
