@@ -3,6 +3,7 @@ import ToggleButton from "./components/ToggleButton.jsx";
 import GeneralInformation from "./components/GeneralInformation.jsx";
 import Section from "./components/Section.jsx";
 import WorkExperience from "./components/WorkExperience.jsx";
+import Education from "./components/Education.jsx";
 import "./index.css";
 
 export default function App() {
@@ -24,6 +25,13 @@ export default function App() {
         isEditMode={isEditMode}
         data={{ company: "", title: "", workForm: "", workUntil: "", desc: "" }}
         Component={WorkExperience}
+      />
+      <Section
+        className="edu-exp"
+        title="Education"
+        isEditMode={isEditMode}
+        data={{ school: "", studyTitle: "", studyForm: "", studyUntil: "" }}
+        Component={Education}
       />
     </main>
   );
