@@ -1,0 +1,12 @@
+.education-form > .container > p {
+  color: var(--white);
+}
+
+@media screen and (min-width: 38em) {
+  .education-form > .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .education-form > .container > p {
+    grid-column: 2 span;
+  }
+}

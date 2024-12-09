@@ -2,6 +2,7 @@ import { useState } from "react";
 import Form from "./Form.jsx";
 import Buttons from "./Buttons.jsx";
 import { getCurrentYear, getInputValue } from "../util/common.js";
+import "../styles/Education.css";
 
 export default function Education({ isEditMode, data, onClick }) {
   const [state, setState] = useState({ ...data, formStatus: "open" });
