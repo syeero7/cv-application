@@ -1,3 +1,5 @@
+import "../styles/Buttons.css";
+
 export default function Buttons({ onClickEdit, onClickDelete, deleteId }) {
   return (
     <div className="btn-container">

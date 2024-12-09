@@ -1,0 +1,23 @@
+.toggle-container {
+  position: absolute;
+  top: 0;
+  transform: translate(1rem, calc(-100% + -0.5rem));
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+.toggle-btn {
+  background-color: var(--red);
+  color: var(--white);
+  padding: 0.3em 0.8em;
+  border-color: var(--white);
+}
+.toggle-btn.active {
+  background-color: var(--green);
+}
+.toggle-btn:active {
+  transform: rotateY(360deg);
+  opacity: 0.5;
+  transition: opacity, transform 0.2s;
+}
