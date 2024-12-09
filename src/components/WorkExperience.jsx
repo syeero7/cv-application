@@ -2,6 +2,7 @@ import { useState } from "react";
 import Form from "./Form.jsx";
 import Buttons from "./Buttons.jsx";
 import { getInputValue, getCurrentYear } from "../util/common.js";
+import "../styles/WorkExperience.css";
 
 export default function WorkExperience({ isEditMode, data, onClick }) {
   const [state, setState] = useState({ ...data, formStatus: "open" });
