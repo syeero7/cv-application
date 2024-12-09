@@ -24,7 +24,7 @@ export default function WorkExperience({ isEditMode, data, onClick }) {
     });
   };
 
-  if (state.formStatus === "open")
+  if (state.formStatus === "open" && isEditMode)
     return (
       <Form
         className="work-exp-form"
@@ -79,14 +79,15 @@ export default function WorkExperience({ isEditMode, data, onClick }) {
     );
 
   return (
-    <article className="work-info">
+    <article className={`${isEditMode ? "edit-mode" : ""} content`}>
       <h3>{state.company}</h3>
+      <p>{state.title}</p>
       <p className="work-date">
         {`( ${state.workForm} - ${
           state.workUntil === getCurrentYear() ? "Present" : state.workUntil
         } )`}
       </p>
-      <p>{state.title}</p>
+      <p>{state.desc}</p>
       {isEditMode && (
         <Buttons
           onClickEdit={setFormStatus}
@@ -94,7 +95,6 @@ export default function WorkExperience({ isEditMode, data, onClick }) {
           deleteId={state.id}
         />
       )}
-      <p>{state.desc}</p>
     </article>
   );
 }

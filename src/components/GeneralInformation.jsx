@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Form from "./Form.jsx";
 import { getInputValue } from "../util/common.js";
+import "../styles/GeneralInformation.css";
 
 export default function GeneralInformation({ isEditMode, data }) {
   const [state, setState] = useState({ ...data, formStatus: "open" });
@@ -21,7 +22,7 @@ export default function GeneralInformation({ isEditMode, data }) {
     });
   };
 
-  if (state.formStatus === "open")
+  if (state.formStatus === "open" && isEditMode)
     return (
       <Form
         className="general-info-form"
@@ -60,14 +61,13 @@ export default function GeneralInformation({ isEditMode, data }) {
     );
 
   return (
-    <article>
+    <article className="content">
       <h1>
         {state.firstName} {state.lastName}
       </h1>
       <hr />
-      <p>
-        {state.phone} {state.email}
-      </p>
+      <p>{state.phone}</p>
+      <p>{state.email}</p>
       {isEditMode && (
         <button
           aria-label="edit"

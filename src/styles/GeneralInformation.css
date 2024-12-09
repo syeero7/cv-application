@@ -1,0 +1,26 @@
+.general-info {
+  position: relative;
+  margin-top: 6ch;
+}
+.general-info-form {
+  background-color: var(--dark-gray);
+}
+.general-info > .content {
+  position: relative;
+  padding: 1rem 1rem 0.5rem;
+}
+.general-info > .content > p {
+  margin: 0.5rem;
+}
+.general-info > .content > .edit-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-0.4rem, -30%);
+}
+
+@media screen and (min-width: 38em) {
+  .general-info-form > .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
