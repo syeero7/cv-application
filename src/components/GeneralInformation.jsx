@@ -30,28 +30,28 @@ export default function GeneralInformation({ isEditMode, data }) {
       >
         <input
           type="text"
-          data-first-name
+          data-first-name=""
           aria-label="first name"
           placeholder="First name"
           defaultValue={state.firstName}
         />
         <input
           type="text"
-          data-last-name
+          data-last-name=""
           aria-label="last name"
           placeholder="Last name"
           defaultValue={state.lastName}
         />
         <input
           type="tel"
-          data-phone
+          data-phone=""
           aria-label="phone number"
           placeholder="Phone number"
           defaultValue={state.phone}
         />
         <input
           type="email"
-          data-email
+          data-email=""
           aria-label="email"
           placeholder="Email"
           defaultValue={state.email}

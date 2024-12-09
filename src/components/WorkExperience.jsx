@@ -35,13 +35,13 @@ export default function WorkExperience({ isEditMode, data, onClick }) {
         <input
           type="text"
           placeholder="Company name"
-          data-company-name
+          data-company-name=""
           defaultValue={state.company}
         />
         <input
           type="text"
           placeholder="Position title"
-          data-position-title
+          data-position-title=""
           defaultValue={state.title}
         />
         <p>
@@ -52,7 +52,7 @@ export default function WorkExperience({ isEditMode, data, onClick }) {
               type="number"
               max={getCurrentYear()}
               min="1900"
-              data-work-from
+              data-work-from=""
               defaultValue={!state.workForm ? getCurrentYear() : state.workForm}
             />
           </label>
@@ -62,7 +62,7 @@ export default function WorkExperience({ isEditMode, data, onClick }) {
               type="number"
               min="1900"
               max={getCurrentYear()}
-              data-work-until
+              data-work-until=""
               defaultValue={
                 !state.workUntil ? getCurrentYear() : state.workUntil
               }
@@ -72,7 +72,7 @@ export default function WorkExperience({ isEditMode, data, onClick }) {
         <textarea
           aria-label="main responsibilities of the job"
           placeholder="Main responsibilities of the job"
-          data-desc
+          data-desc=""
           defaultValue={state.desc}
         ></textarea>
       </Form>
