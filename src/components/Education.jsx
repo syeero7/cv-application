@@ -17,7 +17,7 @@ export default function Education({ isEditMode, data, onClick }) {
     setState({
       school: getInputValue(e.target, "school"),
       studyTitle: getInputValue(e.target, "study-title"),
-      studyForm: getInputValue(e.target, "study-from"),
+      studyFrom: getInputValue(e.target, "study-from"),
       studyUntil: getInputValue(e.target, "study-until"),
       id: e.target.dataset.id,
       formStatus: "close",
@@ -78,10 +78,10 @@ export default function Education({ isEditMode, data, onClick }) {
 
   return (
     <article className={`${isEditMode ? "edit-mode" : ""} content`}>
-      <h3>{state.school}</h3>
-      <p>{state.studyTitle}</p>
+      <h3>{state.studyTitle}</h3>
+      <p>{state.school}</p>
       <p className="study-date">
-        {`( ${state.studyForm} - ${
+        {`( ${state.studyFrom} - ${
           state.studyUntil === getCurrentYear() ? "Present" : state.studyUntil
         } )`}
       </p>

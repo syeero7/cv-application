@@ -17,7 +17,7 @@ export default function WorkExperience({ isEditMode, data, onClick }) {
     setState({
       company: getInputValue(e.target, "company-name"),
       title: getInputValue(e.target, "position-title"),
-      workForm: getInputValue(e.target, "work-from"),
+      workFrom: getInputValue(e.target, "work-from"),
       workUntil: getInputValue(e.target, "work-until"),
       desc: getInputValue(e.target, "desc"),
       id: e.target.dataset.id,
@@ -56,7 +56,7 @@ export default function WorkExperience({ isEditMode, data, onClick }) {
               max={getCurrentYear()}
               min="1900"
               data-work-from=""
-              defaultValue={!state.workForm ? getCurrentYear() : state.workForm}
+              defaultValue={!state.workFrom ? getCurrentYear() : state.workFrom}
             />
           </label>
           <label>
@@ -83,10 +83,10 @@ export default function WorkExperience({ isEditMode, data, onClick }) {
 
   return (
     <article className={`${isEditMode ? "edit-mode" : ""} content`}>
-      <h3>{state.company}</h3>
-      <p>{state.title}</p>
+      <h3>{state.title}</h3>
+      <p>{state.company}</p>
       <p className="work-date">
-        {`( ${state.workForm} - ${
+        {`( ${state.workFrom} - ${
           state.workUntil === getCurrentYear() ? "Present" : state.workUntil
         } )`}
       </p>

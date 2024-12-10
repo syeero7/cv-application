@@ -4,7 +4,6 @@ import GeneralInformation from "./components/GeneralInformation.jsx";
 import Section from "./components/Section.jsx";
 import WorkExperience from "./components/WorkExperience.jsx";
 import Education from "./components/Education.jsx";
-import "./index.css";
 
 export default function App() {
   const [isEditMode, setIsEditMode] = useState(true);
@@ -23,14 +22,14 @@ export default function App() {
         className="work-exp"
         title="Work Experience"
         isEditMode={isEditMode}
-        data={{ company: "", title: "", workForm: "", workUntil: "", desc: "" }}
+        data={{ company: "", title: "", workFrom: "", workUntil: "", desc: "" }}
         Component={WorkExperience}
       />
       <Section
         className="edu-exp"
         title="Education"
         isEditMode={isEditMode}
-        data={{ school: "", studyTitle: "", studyForm: "", studyUntil: "" }}
+        data={{ school: "", studyTitle: "", studyFrom: "", studyUntil: "" }}
         Component={Education}
       />
     </main>
