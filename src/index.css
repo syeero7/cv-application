@@ -1,0 +1,85 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ff-sans-serif: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+    Arial, sans-serif;
+
+  --text: hsl(120, 4%, 5%);
+  --background: hsl(135, 29%, 97%);
+  --primary: hsl(143, 51%, 54%);
+  --secondary: hsl(143, 75%, 71%);
+  --accent: hsl(143, 99%, 61%);
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--ff-sans-serif);
+  line-height: 1.5;
+  background-color: var(--background);
+  color: var(--text);
+}
+
+svg {
+  height: 24px;
+  width: 24px;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+  }
+}
+
+.toggle-buttons {
+  margin: 1em auto;
+  max-width: 320px;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+
+  & button {
+    padding: 0.5em 0.9em 0.4em;
+    border: 1px solid transparent;
+    background-color: hsl(from var(--primary) h s 55%);
+    border-radius: 6px;
+    transition-property: opacity, border-color;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+
+    &:not(:disabled):focus-visible,
+    &:not(:disabled):active {
+      border-color: var(--accent);
+      filter: drop-shadow(0 0 0.25em var(--accent));
+    }
+  }
+}
+
+main {
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .toggle-buttons button:not(:disabled):hover {
+    border-color: var(--accent);
+    filter: drop-shadow(0 0 0.5em var(--accent));
+  }
+}

@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      <div>
+      <div className="toggle-buttons">
         <button
           disabled={!previewOn}
           onClick={() => setPreviewOn((prev) => !prev)}>
