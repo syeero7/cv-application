@@ -8,7 +8,7 @@ function FormField({ label, name, value, type = "text" }) {
   }
 
   return (
-    <label>
+    <label className="form-field">
       <span>{label}</span>
       <input
         required

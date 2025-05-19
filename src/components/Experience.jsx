@@ -18,7 +18,7 @@ function Experience({ data, dispatch }) {
   const selectedExperience =
     formState.state !== "edit"
       ? undefined
-      : data.find((experience) => experience.id === id);
+      : data.find((experience) => experience.id === formState.id);
 
   return (
     <details name="section">
@@ -39,7 +39,7 @@ function Experience({ data, dispatch }) {
             value={selectedExperience?.position}
           />
 
-          <div>
+          <div className="year-inputs">
             <FormField
               label="Start year"
               name="start"
@@ -54,32 +54,37 @@ function Experience({ data, dispatch }) {
             />
           </div>
 
-          <label>
+          <label className="form-field">
             <span>Responsibilities</span>
             <textarea
               name="responsibilities"
+              style={{ width: "100%" }}
               defaultValue={selectedExperience?.responsibilities}></textarea>
           </label>
 
-          <div>
-            <button type="submit">{formState.state}</button>
+          <div className="form-buttons">
+            <button type="submit" className="submit-btn">
+              {formState.state}
+            </button>
             <button
               type="button"
+              className="cancel-btn"
               onClick={() => setFormState({ state: "normal", id: null })}>
               cancel
             </button>
           </div>
         </form>
       ) : (
-        <ul>
+        <ul className="list">
           {data.length > 0 &&
             data.map(({ company, id }) => (
-              <li key={id}>
+              <li key={id} className="data-item">
                 <p>{company}</p>
 
                 <button
                   aria-label="edit"
-                  onClick={() => setFormState({ state: "edit", id })}>
+                  onClick={() => setFormState({ state: "edit", id })}
+                  className="edit-btn">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 -960 960 960">
@@ -89,7 +94,8 @@ function Experience({ data, dispatch }) {
 
                 <button
                   aria-label="delete"
-                  onClick={() => dispatch({ type: "delete-experience", id })}>
+                  onClick={() => dispatch({ type: "delete-experience", id })}
+                  className="delete-btn">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 -960 960 960">
@@ -99,7 +105,7 @@ function Experience({ data, dispatch }) {
               </li>
             ))}
 
-          <li>
+          <li className="add-item">
             <button onClick={() => setFormState({ state: "add", id: null })}>
               + Experience
             </button>

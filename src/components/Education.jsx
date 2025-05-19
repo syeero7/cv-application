@@ -18,7 +18,7 @@ function Education({ data, dispatch }) {
   const selectedEducation =
     formState.state !== "edit"
       ? undefined
-      : data.find((education) => education.id === id);
+      : data.find((education) => education.id === formState.id);
 
   return (
     <details name="section">
@@ -39,7 +39,7 @@ function Education({ data, dispatch }) {
             value={selectedEducation?.title}
           />
 
-          <div>
+          <div className="year-inputs">
             <FormField
               label="Start year"
               name="start"
@@ -54,25 +54,29 @@ function Education({ data, dispatch }) {
             />
           </div>
 
-          <div>
-            <button type="submit">{formState.state}</button>
+          <div className="form-buttons">
+            <button type="submit" className="submit-btn">
+              {formState.state}
+            </button>
             <button
               type="button"
+              className="cancel-btn"
               onClick={() => setFormState({ state: "normal", id: null })}>
               cancel
             </button>
           </div>
         </form>
       ) : (
-        <ul>
+        <ul className="list">
           {data.length > 0 &&
             data.map(({ school, id }) => (
-              <li key={id}>
+              <li key={id} className="data-item">
                 <p>{school}</p>
 
                 <button
                   aria-label="edit"
-                  onClick={() => setFormState({ state: "edit", id })}>
+                  onClick={() => setFormState({ state: "edit", id })}
+                  className="edit-btn">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 -960 960 960">
@@ -82,7 +86,8 @@ function Education({ data, dispatch }) {
 
                 <button
                   aria-label="delete"
-                  onClick={() => dispatch({ type: "delete-education", id })}>
+                  onClick={() => dispatch({ type: "delete-education", id })}
+                  className="delete-btn">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 -960 960 960">
@@ -92,7 +97,7 @@ function Education({ data, dispatch }) {
               </li>
             ))}
 
-          <li>
+          <li className="add-item">
             <button onClick={() => setFormState({ state: "add", id: null })}>
               + Education
             </button>
