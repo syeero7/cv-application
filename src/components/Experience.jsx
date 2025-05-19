@@ -21,7 +21,7 @@ function Experience({ data, dispatch }) {
       : data.find((experience) => experience.id === id);
 
   return (
-    <details>
+    <details name="section">
       <summary>
         <strong>Experience</strong>
       </summary>
@@ -41,15 +41,15 @@ function Experience({ data, dispatch }) {
 
           <div>
             <FormField
-              label="Start date"
+              label="Start year"
               name="start"
-              type="date"
+              type="number"
               value={selectedExperience?.start}
             />
             <FormField
-              label="End date"
+              label="End year"
               name="end"
-              type="date"
+              type="number"
               value={selectedExperience?.end}
             />
           </div>

@@ -8,7 +8,7 @@ function Personal({ data, dispatch }) {
   };
 
   return (
-    <details>
+    <details name="section" open>
       <summary>
         <strong>Personal Information</strong>
       </summary>

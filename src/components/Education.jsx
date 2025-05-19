@@ -15,13 +15,13 @@ function Education({ data, dispatch }) {
     setFormState({ state: "normal", id: null });
   };
 
-  const selectedSchool =
+  const selectedEducation =
     formState.state !== "edit"
       ? undefined
-      : data.find((school) => school.id === id);
+      : data.find((education) => education.id === id);
 
   return (
-    <details>
+    <details name="section">
       <summary>
         <strong>Education</strong>
       </summary>
@@ -30,27 +30,27 @@ function Education({ data, dispatch }) {
         <form action={formAction}>
           <FormField
             label="School name"
-            name="name"
-            value={selectedSchool?.name}
+            name="school"
+            value={selectedEducation?.school}
           />
           <FormField
             label="Title of study"
             name="title"
-            value={selectedSchool?.title}
+            value={selectedEducation?.title}
           />
 
           <div>
             <FormField
-              label="Start date"
+              label="Start year"
               name="start"
-              type="date"
-              value={selectedSchool?.start}
+              type="number"
+              value={selectedEducation?.start}
             />
             <FormField
-              label="End date"
+              label="End year"
               name="end"
-              type="date"
-              value={selectedSchool?.end}
+              type="number"
+              value={selectedEducation?.end}
             />
           </div>
 
@@ -59,9 +59,9 @@ function Education({ data, dispatch }) {
       ) : (
         <ul>
           {data.length > 0 &&
-            data.map(({ name, id }) => (
+            data.map(({ school, id }) => (
               <li key={id}>
-                <p>{name}</p>
+                <p>{school}</p>
 
                 <button
                   aria-label="edit"
