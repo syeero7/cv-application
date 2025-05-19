@@ -100,9 +100,48 @@ const reducer = (state, action) => {
 };
 
 const initialState = {
-  personal: {},
-  education: [],
-  experience: [],
+  personal: {
+    firstName: "Jason",
+    lastName: "Miller",
+    email: "jasonMil@mail.com",
+    phone: "0114753310",
+  },
+  education: [
+    {
+      id: crypto.randomUUID(),
+      school: "XY High school",
+      title: "High School Diploma ",
+      start: "2014",
+      end: "2016",
+    },
+    {
+      id: crypto.randomUUID(),
+      school: "AX University",
+      title: "Bachelor of Science in Computer Science",
+      start: "2016",
+      end: "2020",
+    },
+  ],
+  experience: [
+    {
+      id: crypto.randomUUID(),
+      company: "DX Tech",
+      position: "Junior Software Engineer",
+      start: "2020",
+      end: "2022",
+      responsibilities:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, iure totam, mollitia quod dolorem similique iusto saepe architecto asperiores natus ducimus tempore labore, repellat aspernatur temporibus at eum",
+    },
+    {
+      id: crypto.randomUUID(),
+      company: "X Enterprises",
+      position: "Software Engineer",
+      start: "2022",
+      end: "2024",
+      responsibilities:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam molestiae hic numquam voluptatem illum quidem, rerum ea dignissimos laborum beatae dicta in pariatur nobis repellat",
+    },
+  ],
 };
 
 export default App;
