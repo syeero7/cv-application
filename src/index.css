@@ -1,139 +1,85 @@
-@font-face {
-  font-family: "open-sans";
-  src: url("././assets/open-sans-var.woff2");
-  font-display: swap;
-}
-
-*,
-*::after,
-*::before {
-  margin: 0;
+* {
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
 :root {
-  --ff-open-sans: "open-sans", sans-serif;
-  --fs: clamp(1rem, 1rem + 0.5vw, 3rem);
+  --ff-sans-serif: Inter, Roboto, "Helvetica Neue", "Arial Nova", "Nimbus Sans",
+    Arial, sans-serif;
 
-  --btn-size: 3rem;
-
-  --red: #dc2626;
-  --green: #16a34a;
-  --blue: #0284c7;
-  --white: #fff;
-  --dark-gray: #282828;
+  --text: hsl(120, 4%, 5%);
+  --background: hsl(135, 29%, 97%);
+  --primary: hsl(143, 51%, 54%);
+  --secondary: hsl(143, 75%, 71%);
+  --accent: hsl(143, 99%, 61%);
 }
 
 body {
-  font-family: var(--ff-open-sans);
-  font-size: var(--fs);
+  min-height: 100vh;
+  font-family: var(--ff-sans-serif);
+  line-height: 1.5;
+  background-color: var(--background);
+  color: var(--text);
 }
 
-.cv-app {
-  max-width: 80ch;
-  margin: 0 auto;
-  margin-bottom: 2rem;
+svg {
+  height: 24px;
+  width: 24px;
 }
 
-input,
 button,
+input,
 textarea {
-  font: inherit;
-  border-radius: 6px;
-  border-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
 }
 
-input[type="number"] {
-  max-width: 6ch;
+li {
+  list-style: none;
 }
 
-input:focus-visible,
-button:focus-visible,
-textarea:focus-visible {
-  border-color: unset;
+button {
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+  }
 }
 
-h1 {
-  font-size: 2em;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-h2 {
-  margin-left: 0.5rem;
-}
-
-section > header {
+.toggle-buttons {
+  margin: 1em auto;
+  max-width: 320px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
+  justify-content: center;
+  gap: 1em;
+
+  & button {
+    padding: 0.5em 0.9em 0.4em;
+    border: 1px solid transparent;
+    background-color: hsl(from var(--primary) h s 55%);
+    border-radius: 6px;
+    transition-property: opacity, border-color;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+
+    &:not(:disabled):focus-visible,
+    &:not(:disabled):active {
+      border-color: var(--accent);
+      filter: drop-shadow(0 0 0.25em var(--accent));
+    }
+  }
 }
 
-section > header ~ article .content.edit-mode {
-  margin-top: 3.5rem;
-  border-bottom: 1px dashed hsla(0, 0%, 0%, 0.5);
-}
-
-section > header ~ article :last-child.content.edit-mode {
-  border-bottom: none;
-}
-
-section > header ~ article article.content {
-  position: relative;
-  display: grid;
-  gap: 0.4rem;
-  padding: 0.5rem 1rem;
-}
-
-.btn-bg {
-  min-width: var(--btn-size);
-  min-height: var(--btn-size);
-  background-size: cover;
-  background-color: var(--white);
-}
-
-.add-btn {
-  background-image: url("./assets/add.svg");
-}
-.edit-btn {
-  background-image: url("./assets/edit.svg");
-}
-.delete-btn {
-  background-image: url("./assets/delete.svg");
-}
-
-.add-btn:active,
-.add-btn:focus-visible {
-  background-image: url("./assets/add-hover.svg");
-  border-color: var(--green);
-}
-.edit-btn:active,
-.edit-btn:focus-visible {
-  background-image: url("./assets/edit-hover.svg");
-  border-color: var(--blue);
-}
-.delete-btn:active,
-.delete-btn:focus-visible {
-  background-image: url("./assets/delete-hover.svg");
-  border-color: var(--red);
+main {
+  max-width: 720px;
+  margin-inline: auto;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  button:hover {
-    cursor: pointer;
-  }
-  .add-btn:hover {
-    background-image: url("./assets/add-hover.svg");
-    border-color: var(--green);
-  }
-  .edit-btn:hover {
-    background-image: url("./assets/edit-hover.svg");
-    border-color: var(--blue);
-  }
-  .delete-btn:hover {
-    background-image: url("./assets/delete-hover.svg");
-    border-color: var(--red);
+  .toggle-buttons button:not(:disabled):hover {
+    border-color: var(--accent);
+    filter: drop-shadow(0 0 0.5em var(--accent));
   }
 }

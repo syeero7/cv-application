@@ -1,0 +1,183 @@
+.container details {
+  padding: 0.75em;
+  margin-bottom: 1em;
+  border: 1px solid var(--text);
+  border-radius: 8px;
+  margin-inline: 0.5em;
+  background-color: hsl(0, 0%, 100%);
+  interpolate-size: allow-keywords;
+  min-width: 300px;
+
+  &::details-content {
+    transition: block-size 0.3s, content-visibility 0.3s allow-discrete;
+    overflow: hidden;
+    block-size: 0;
+  }
+
+  &[open]::details-content {
+    block-size: auto;
+  }
+
+  & summary {
+    cursor: pointer;
+  }
+
+  &[open] summary {
+    padding-bottom: 0.75em;
+    margin-bottom: 1em;
+    border-bottom: 1px solid var(--text);
+  }
+
+  & form {
+    display: grid;
+    gap: 0.75em;
+
+    & button {
+      border: 1px solid transparent;
+      padding: 0.5em 1em 0.25em;
+      max-width: fit-content;
+      border-radius: 6px;
+      font-size: 0.9em;
+      transition: border-color 0.25s ease-in-out;
+      text-transform: capitalize;
+
+      --form-btn-color: hsl(from var(--text) h s 35%);
+
+      &:active,
+      &:focus-visible {
+        border-color: var(--form-btn-color);
+        filter: drop-shadow(0 0 0.25em var(--form-btn-color));
+      }
+    }
+  }
+}
+
+.personal-form button {
+  margin-left: auto;
+}
+
+.year-inputs {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+  max-width: 200px;
+}
+
+.form-field {
+  display: grid;
+  max-width: 275px;
+
+  & span {
+    font-size: 0.9em;
+  }
+
+  & input,
+  & textarea {
+    padding-inline: 0.5em;
+    padding-block: 0.5em 0.25em;
+    border-color: hsla(from var(--text) h s l / 0.75);
+    border-radius: 4px;
+  }
+
+  &:has(textarea) {
+    max-width: 400px;
+  }
+
+  & textarea {
+    resize: none;
+  }
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1em;
+  margin-left: auto;
+}
+
+.submit-btn.submit-btn {
+  background-color: var(--accent);
+  --form-btn-color: var(--primary);
+}
+
+.list {
+  display: grid;
+  gap: 1em;
+}
+
+.data-item {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5em;
+
+  & p {
+    margin-right: auto;
+  }
+
+  & button {
+    max-height: 28px;
+    border-radius: 50%;
+    background-color: transparent;
+    border-color: transparent;
+    text-transform: capitalize;
+
+    & svg {
+      transition: fill 0.2s ease-in-out;
+    }
+  }
+}
+
+.edit-btn {
+  --active-color: hsl(197, 84%, 36%);
+
+  &:focus-visible svg,
+  &:active svg {
+    fill: var(--active-color);
+  }
+}
+
+.delete-btn {
+  --active-color: hsl(0, 72%, 55%);
+
+  &:focus-visible svg,
+  &:active svg {
+    fill: var(--active-color);
+  }
+}
+
+.add-item {
+  display: flex;
+  justify-content: center;
+
+  & button {
+    background-color: var(--accent);
+    padding: 0.5em 1em 0.25em;
+    border: 1.5px solid transparent;
+    border-radius: 6px;
+    font-size: 0.9em;
+    transition: border-color 0.25s ease-in-out;
+
+    &:active,
+    &:focus-visible {
+      border-color: var(--primary);
+      filter: drop-shadow(0 0 0.25em var(--primary));
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .delete-btn:hover,
+  .edit-btn:hover {
+    fill: var(--active-color);
+  }
+
+  .container form button:hover {
+    border-color: var(--form-btn-color);
+    filter: drop-shadow(0 0 0.25em var(--form-btn-color));
+  }
+
+  .add-item button:hover {
+    border-color: var(--primary);
+    filter: drop-shadow(0 0 0.25em var(--primary));
+  }
+}

@@ -1,42 +1,42 @@
 import { useState } from "react";
 import FormField from "./FormField";
 
-function Education({ data, dispatch }) {
+function Experience({ data, dispatch }) {
   const [formState, setFormState] = useState({ state: "normal", id: null });
 
   const formAction = (formData) => {
     const payload = Object.fromEntries(formData);
 
     dispatch({
-      type: `${formState.state}-education`,
+      type: `${formState.state}-experience`,
       id: formState.id,
       payload,
     });
     setFormState({ state: "normal", id: null });
   };
 
-  const selectedEducation =
+  const selectedExperience =
     formState.state !== "edit"
       ? undefined
-      : data.find((education) => education.id === formState.id);
+      : data.find((experience) => experience.id === formState.id);
 
   return (
     <details name="section">
       <summary>
-        <strong>Education</strong>
+        <strong>Experience</strong>
       </summary>
 
       {formState.state !== "normal" ? (
         <form action={formAction}>
           <FormField
-            label="School name"
-            name="school"
-            value={selectedEducation?.school}
+            label="Company name"
+            name="company"
+            value={selectedExperience?.company}
           />
           <FormField
-            label="Title of study"
-            name="title"
-            value={selectedEducation?.title}
+            label="Position title"
+            name="position"
+            value={selectedExperience?.position}
           />
 
           <div className="year-inputs">
@@ -44,15 +44,23 @@ function Education({ data, dispatch }) {
               label="Start year"
               name="start"
               type="number"
-              value={selectedEducation?.start}
+              value={selectedExperience?.start}
             />
             <FormField
               label="End year"
               name="end"
               type="number"
-              value={selectedEducation?.end}
+              value={selectedExperience?.end}
             />
           </div>
+
+          <label className="form-field">
+            <span>Responsibilities</span>
+            <textarea
+              name="responsibilities"
+              style={{ width: "100%" }}
+              defaultValue={selectedExperience?.responsibilities}></textarea>
+          </label>
 
           <div className="form-buttons">
             <button type="submit" className="submit-btn">
@@ -69,9 +77,9 @@ function Education({ data, dispatch }) {
       ) : (
         <ul className="list">
           {data.length > 0 &&
-            data.map(({ school, id }) => (
+            data.map(({ company, id }) => (
               <li key={id} className="data-item">
-                <p>{school}</p>
+                <p>{company}</p>
 
                 <button
                   aria-label="edit"
@@ -86,7 +94,7 @@ function Education({ data, dispatch }) {
 
                 <button
                   aria-label="delete"
-                  onClick={() => dispatch({ type: "delete-education", id })}
+                  onClick={() => dispatch({ type: "delete-experience", id })}
                   className="delete-btn">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -99,7 +107,7 @@ function Education({ data, dispatch }) {
 
           <li className="add-item">
             <button onClick={() => setFormState({ state: "add", id: null })}>
-              + Education
+              + Experience
             </button>
           </li>
         </ul>
@@ -108,4 +116,4 @@ function Education({ data, dispatch }) {
   );
 }
 
-export default Education;
+export default Experience;

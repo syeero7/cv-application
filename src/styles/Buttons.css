@@ -1,9 +1,0 @@
-.content > .btn-container {
-  position: absolute;
-  top: 0;
-  right: 0;
-  transform: translate(-0.5rem, -100%);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
