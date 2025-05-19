@@ -54,7 +54,14 @@ function Education({ data, dispatch }) {
             />
           </div>
 
-          <button>{formState.state}</button>
+          <div>
+            <button type="submit">{formState.state}</button>
+            <button
+              type="button"
+              onClick={() => setFormState({ state: "normal", id: null })}>
+              cancel
+            </button>
+          </div>
         </form>
       ) : (
         <ul>
