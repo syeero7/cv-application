@@ -64,7 +64,7 @@ function Experience({ data, dispatch }) {
 
           <div className="form-buttons">
             <button type="submit" className="submit-btn">
-              {formState.state}
+              {formState.state === "add" ? "add" : "update"}
             </button>
             <button
               type="button"
